@@ -5,96 +5,73 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Players – A Fazenda 17</title>
   <style>
-    :root { --gap: 12px; --card-bg: #0f1319; --card-border: #1f2733; --title-bg:#12161d; --title:#b8c7e0; --page-bg:#0b0d10; --page-fg:#e8eef6; }
-    * { box-sizing: border-box; }
-    html, body { height: 100%; }
-    body { margin: 0; background: var(--page-bg); color: var(--page-fg); font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, Arial, "Apple Color Emoji", "Segoe UI Emoji"; user-select: none; }
-    main { max-width: 1400px; margin: 0 auto; padding: var(--gap); }
-    .grid { display: grid; gap: var(--gap); grid-template-columns: repeat(2, 1fr); }
-    @media (max-width: 900px) { .grid { grid-template-columns: 1fr; } }
-    .card { background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 14px; overflow: hidden; box-shadow: 0 8px 24px rgba(0,0,0,.25); }
-    .card-title { padding: 12px 14px; font-size: 15px; font-weight: 700; color: var(--title); border-bottom: 1px solid var(--card-border); background: var(--title-bg); }
-    .frame-wrap { position: relative; width: 100%; aspect-ratio: 16/9; background: #000; }
-    .frame-wrap iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+    :root { --gap: 12px; --card-bg:#0f1319; --card-bd:#1f2733; --title-bg:#12161d; --title:#b8c7e0; --page-bg:#0b0d10; --page-fg:#e8eef6; }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{margin:0;background:var(--page-bg);color:var(--page-fg);font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,Arial}
+    main{max-width:1400px;margin:0 auto;padding:var(--gap)}
+    .grid{display:grid;gap:var(--gap);grid-template-columns:repeat(2,1fr)}
+    @media (max-width:900px){.grid{grid-template-columns:1fr}}
+    .card{background:var(--card-bg);border:1px solid var(--card-bd);border-radius:14px;overflow:hidden;box-shadow:0 8px 24px rgba(0,0,0,.25);position:relative}
+    .card-title{padding:12px 14px;font-size:15px;font-weight:700;color:var(--title);border-bottom:1px solid var(--card-bd);background:var(--title-bg)}
+    .frame-wrap{position:relative;width:100%;aspect-ratio:16/9;background:#000}
+    iframe.player{position:absolute;inset:0;width:100%;height:100%;border:0;pointer-events:none}
+    .guard{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;gap:10px;background:linear-gradient(0deg, rgba(0,0,0,.45), rgba(0,0,0,.45));cursor:pointer}
+    .guard .btn{padding:10px 14px;border-radius:12px;border:1px solid #2a3342;background:#141822;color:#e8eef6;font-weight:700}
+    .guard .tip{font-size:12px;color:#c7d4eb;opacity:.8}
+    .hidden{display:none!important}
   </style>
-  <script>
-    // === DISSUASÃO (não é segurança real) ===
-    // Bloqueia atalhos mais comuns (Ctrl+U, Ctrl+S, Ctrl+Shift+I/J/C, F12)
-    (function () {
-      const blockKeys = (e) => {
-        const k = (e.key || '').toUpperCase();
-        if (
-          (e.ctrlKey && (k === 'U' || k === 'S' || k === 'P')) ||        // Ctrl+U, Ctrl+S, Ctrl+P
-          (e.key === 'F12') ||                                           // F12
-          (e.ctrlKey && e.shiftKey && ['I','J','C'].includes(k)) ||      // Ctrl+Shift+I/J/C
-          (e.metaKey && (k === 'U' || k === 'S' || k === 'P'))           // Cmd+U/S/P (mac)
-        ) {
-          e.preventDefault(); e.stopPropagation();
-          return false;
-        }
-      };
-      document.addEventListener('keydown', blockKeys, true);
-      document.addEventListener('contextmenu', (e) => { e.preventDefault(); }, true); // botão direito
-      document.addEventListener('dragstart', (e) => { e.preventDefault(); }, true);
-
-      // Pequena detecção de DevTools aberto (heurística; não confiável)
-      let devtoolsOpen = false;
-      const threshold = 160;
-      setInterval(() => {
-        const widthThreshold  = window.outerWidth - window.innerWidth > threshold;
-        const heightThreshold = window.outerHeight - window.innerHeight > threshold;
-        const ratioThreshold  = (window.devicePixelRatio && window.devicePixelRatio % 1 !== 0);
-        const opened = widthThreshold || heightThreshold || ratioThreshold;
-        if (opened !== devtoolsOpen) {
-          devtoolsOpen = opened;
-          if (devtoolsOpen) {
-            console.warn('DevTools detectado.');
-          }
-        }
-      }, 1000);
-    })();
-  </script>
 </head>
 <body>
   <main>
-    <section class="grid">
-      <article class="card">
-        <div class="card-title">Fazenda 17 - 1</div>
-        <div class="frame-wrap">
-          <iframe src="https://reidoscanais.life/embed/?id=fazenda17" loading="lazy" allow="encrypted-media" allowfullscreen referrerpolicy="no-referrer-when-downgrade"></iframe>
-        </div>
-      </article>
-      <article class="card">
-        <div class="card-title">Fazenda 17 - 2</div>
-        <div class="frame-wrap">
-          <iframe src="https://reidoscanais.life/embed/?id=fazenda17-2" loading="lazy" allow="encrypted-media" allowfullscreen referrerpolicy="no-referrer-when-downgrade"></iframe>
-        </div>
-      </article>
-      <article class="card">
-        <div class="card-title">Fazenda 17 - 3</div>
-        <div class="frame-wrap">
-          <iframe src="https://reidoscanais.life/embed/?id=fazenda17-3" loading="lazy" allow="encrypted-media" allowfullscreen referrerpolicy="no-referrer-when-downgrade"></iframe>
-        </div>
-      </article>
-      <article class="card">
-        <div class="card-title">Fazenda 17 - 4</div>
-        <div class="frame-wrap">
-          <iframe src="https://reidoscanais.life/embed/?id=fazenda17-4" loading="lazy" allow="encrypted-media" allowfullscreen referrerpolicy="no-referrer-when-downgrade"></iframe>
-        </div>
-      </article>
-      <article class="card">
-        <div class="card-title">Fazenda 17 - 5</div>
-        <div class="frame-wrap">
-          <iframe src="https://reidoscanais.life/embed/?id=fazenda17-5" loading="lazy" allow="encrypted-media" allowfullscreen referrerpolicy="no-referrer-when-downgrade"></iframe>
-        </div>
-      </article>
-      <article class="card">
-        <div class="card-title">Fazenda 17 - 6</div>
-        <div class="frame-wrap">
-          <iframe src="https://reidoscanais.life/embed/?id=fazenda17-6" loading="lazy" allow="encrypted-media" allowfullscreen referrerpolicy="no-referrer-when-downgrade"></iframe>
-        </div>
-      </article>
-    </section>
+    <section class="grid" id="grid"></section>
   </main>
+
+  <script>
+    // Lista dos players
+    const PLAYERS = [
+      { name: "Fazenda 17 - 1", src: "https://reidoscanais.life/embed/?id=fazenda17" },
+      { name: "Fazenda 17 - 2", src: "https://reidoscanais.life/embed/?id=fazenda17-2" },
+      { name: "Fazenda 17 - 3", src: "https://reidoscanais.life/embed/?id=fazenda17-3" },
+      { name: "Fazenda 17 - 4", src: "https://reidoscanais.life/embed/?id=fazenda17-4" },
+      { name: "Fazenda 17 - 5", src: "https://reidoscanais.life/embed/?id=fazenda17-5" },
+      { name: "Fazenda 17 - 6", src: "https://reidoscanais.life/embed/?id=fazenda17-6" },
+    ];
+
+    const grid = document.getElementById('grid');
+
+    function card(p, i){
+      const id = 'ifr_' + i;
+      return `
+      <article class="card">
+        <div class="card-title">${p.name}</div>
+        <div class="frame-wrap">
+          <iframe class="player" id="${id}" src="${p.src}"
+            loading="lazy"
+            allow="autoplay; encrypted-media; fullscreen; picture-in-picture"
+            allowfullscreen
+            referrerpolicy="no-referrer-when-downgrade">
+          </iframe>
+          <div class="guard" data-target="${id}">
+            <button class="btn">Tocar</button>
+            <span class="tip">Toque para desbloquear o player</span>
+          </div>
+        </div>
+      </article>`;
+    }
+
+    grid.innerHTML = PLAYERS.map(card).join('');
+
+    // Tap guard: primeiro toque desbloqueia o iframe (ativa pointer-events)
+    grid.addEventListener('click', (ev) => {
+      const guard = ev.target.closest('.guard');
+      if(!guard) return;
+      const id = guard.getAttribute('data-target');
+      const iframe = document.getElementById(id);
+      iframe.style.pointerEvents = 'auto';
+      guard.classList.add('hidden');
+      setTimeout(() => { try { iframe.contentWindow && iframe.focus && iframe.focus(); } catch(_){} }, 80);
+    }, { passive: true });
+  </script>
 </body>
 </html>
