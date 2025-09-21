@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="pt-br">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Players – A Fazenda 17</title>
+  <style>
+    :root { --gap: 12px; --card-bg: #0f1319; --card-border: #1f2733; --title-bg:#12161d; --title:#b8c7e0; --page-bg:#0b0d10; --page-fg:#e8eef6; }
+    * { box-sizing: border-box; }
+    html, body { height: 100%; }
+    body { margin: 0; background: var(--page-bg); color: var(--page-fg); font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, Arial, "Apple Color Emoji", "Segoe UI Emoji"; }
+    main { max-width: 1400px; margin: 0 auto; padding: var(--gap); }
+    .grid { display: grid; gap: var(--gap); grid-template-columns: repeat(2, 1fr); }
+    /* Mobile-first: single column on small screens */
+    @media (max-width: 900px) { .grid { grid-template-columns: 1fr; } }
+    .card { background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 14px; overflow: hidden; box-shadow: 0 8px 24px rgba(0,0,0,.25); }
+    .card-title { padding: 12px 14px; font-size: 15px; font-weight: 700; color: var(--title); border-bottom: 1px solid var(--card-border); background: var(--title-bg); }
+    .frame-wrap { position: relative; width: 100%; aspect-ratio: 16/9; background: #000; }
+    .frame-wrap iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+    /* Improve touch targets spacing on very small phones */
+    @media (max-width: 420px) {
+      :root { --gap: 10px; }
+      .card-title { font-size: 14px; padding: 10px 12px; }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <section class="grid">
+      <article class="card">
+        <div class="card-title">Fazenda 17 - 1</div>
+        <div class="frame-wrap">
+          <iframe src="https://reidoscanais.life/embed/?id=fazenda17" loading="lazy" allow="encrypted-media" allowfullscreen referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+      </article>
+      <article class="card">
+        <div class="card-title">Fazenda 17 - 2</div>
+        <div class="frame-wrap">
+          <iframe src="https://reidoscanais.life/embed/?id=fazenda17-2" loading="lazy" allow="encrypted-media" allowfullscreen referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+      </article>
+      <article class="card">
+        <div class="card-title">Fazenda 17 - 3</div>
+        <div class="frame-wrap">
+          <iframe src="https://reidoscanais.life/embed/?id=fazenda17-3" loading="lazy" allow="encrypted-media" allowfullscreen referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+      </article>
+      <article class="card">
+        <div class="card-title">Fazenda 17 - 4</div>
+        <div class="frame-wrap">
+          <iframe src="https://reidoscanais.life/embed/?id=fazenda17-4" loading="lazy" allow="encrypted-media" allowfullscreen referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+      </article>
+      <article class="card">
+        <div class="card-title">Fazenda 17 - 5</div>
+        <div class="frame-wrap">
+          <iframe src="https://reidoscanais.life/embed/?id=fazenda17-5" loading="lazy" allow="encrypted-media" allowfullscreen referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+      </article>
+      <article class="card">
+        <div class="card-title">Fazenda 17 - 6</div>
+        <div class="frame-wrap">
+          <iframe src="https://reidoscanais.life/embed/?id=fazenda17-6" loading="lazy" allow="encrypted-media" allowfullscreen referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+      </article>
+    </section>
+  </main>
+</body>
+</html>
